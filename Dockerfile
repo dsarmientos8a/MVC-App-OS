@@ -2,8 +2,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 COPY . .
-RUN dotnet restore
-RUN dotnet publish -c Release -o /app/publish
+RUN dotnet restore MVC-App-OS.csproj
+RUN dotnet publish MVC-App-OS.csproj -c Release -o /app/publish
 
 # Etapa 2: runtime (imagen final, ligera)
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
